@@ -1,2 +1,4 @@
 # Sites that block automated link checkers
 ^https://scholar\.google\.com/
+# Font preconnect hosts (not pages)
+^https://fonts\.(googleapis|gstatic)\.com/?$
