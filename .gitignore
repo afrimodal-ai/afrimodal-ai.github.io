@@ -1,0 +1,55 @@
+# Private and internal material (keep outside the repo where possible)
+/private/
+/internal/
+/planning/
+/notes/
+/drafts/
+/scratch/
+/tmp/
+*.private.*
+*.local.*
+TODO*.md
+NOTES*.md
+
+# Prompts
+/prompts/
+*.prompt
+*.prompt.md
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+secrets.*
+credentials*
+*.token
+token.txt
+.netrc
+
+# Data and results not meant for release
+/data/
+/results/
+*.wav
+*.flac
+*.mp3
+*.zip
+*.tar.gz
+
+# Editors and OS
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Tooling and build output
+node_modules/
+.cache/
+.lycheecache
+dist/
+_site/
+*.log

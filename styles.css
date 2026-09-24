@@ -1,0 +1,102 @@
+:root {
+  --bg: #fdfdfc;
+  --text: #1c1c1a;
+  --muted: #5c5c57;
+  --rule: #e2e1dc;
+  --link: #1f4f8a;
+  --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141413;
+    --text: #e8e7e3;
+    --muted: #a3a29c;
+    --rule: #2e2e2b;
+    --link: #8fb6e8;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 1rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+a { color: var(--link); text-underline-offset: 0.15em; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+.wrap { max-width: var(--measure); margin: 0 auto; padding: 0 1rem; }
+
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem; }
+
+.site-header { border-bottom: 1px solid var(--rule); padding: 1.25rem 0 1rem; }
+
+.wordmark {
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  font-size: 0.95rem;
+}
+
+nav a { color: var(--muted); text-decoration: none; }
+nav a:hover, nav a:focus-visible { color: var(--text); text-decoration: underline; }
+
+.intro { padding: 2.5rem 0 0.5rem; }
+.tagline { font-size: 1.35rem; line-height: 1.4; margin: 0; }
+
+section { padding: 1.5rem 0; }
+section + section { border-top: 1px solid var(--rule); }
+
+h2 { font-size: 1.1rem; margin: 0 0 0.75rem; }
+
+.areas { margin: 0; }
+.areas div + div { margin-top: 1rem; }
+.areas dt { font-weight: 600; }
+.areas dd { margin: 0.1rem 0 0; }
+
+.empty { color: var(--muted); }
+
+.people, .news { list-style: none; margin: 0; padding: 0; }
+.people p { margin: 0.2rem 0; }
+.people .name { font-weight: 600; }
+.people .role, .people .links { color: var(--muted); font-size: 0.95rem; }
+
+.news li { display: grid; grid-template-columns: 9rem 1fr; gap: 0.25rem 1rem; }
+.news li + li { margin-top: 0.5rem; }
+.news time { color: var(--muted); }
+
+@media (max-width: 30rem) {
+  .news li { grid-template-columns: 1fr; gap: 0; }
+}
+
+.site-footer {
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding: 1rem 0 2rem;
+}
