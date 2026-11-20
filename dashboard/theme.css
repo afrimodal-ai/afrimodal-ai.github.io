@@ -1,0 +1,139 @@
+/* Brand and theme: every colour and font the dashboard uses.
+   To run the dashboard under another name, replace this file and
+   site/brand.svg; styles.css holds layout only.
+
+   Three choices. "System" (the default) follows the device: the warm light
+   palette or the dark one. "Light" and "Dark" force one of them.
+   Fonts ship with the site (SIL Open Font License, see fonts/). */
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/fraunces-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+    U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("fonts/fraunces-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --radius: 12px;
+  --radius-sm: 6px;
+
+  /* Warm light: the AfriModal AI site palette. */
+  --bg: #faf7f1;
+  --surface: #ffffff;
+  --surface-2: #f3eee4;
+  --text: #1b1a17;
+  --muted: #5d5a52;
+  --rule: #e6e1d6;
+  --accent: #b24a22;
+  --accent-soft: #f6e4d8;
+  --on-accent: #ffffff;
+  --shadow: 0 1px 2px rgb(27 26 23 / 0.05), 0 8px 24px -14px rgb(27 26 23 / 0.2);
+
+  /* Status colours, keyed by thresholds.yaml `colour`. Kept clear of the
+     terracotta accent: blocked is a cool crimson, quarantined a gold. */
+  --st-green: #2e7d4f;
+  --st-light_green: #6a9a35;
+  --st-yellow: #b8900f;
+  --st-amber: #a8650a;
+  --st-red: #a3203f;
+  --st-dark_red: #6e1a24;
+  --st-grey: #8f8a7f;
+  --ink-on-status: #ffffff;
+  color-scheme: light;
+}
+
+/* Light: the same brand on a plain white page, for reading and printing. */
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f6f6f4;
+  --rule: #e4e4e0;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 6px 18px -14px rgb(0 0 0 / 0.18);
+}
+
+/* Dark, chosen. The same values follow the device below; CSS cannot
+   share one block between the two, so the two lists stay in step by hand
+   and tests/test_site.py checks that they do. */
+:root[data-theme="dark"] {
+  --bg: #131210;
+  --surface: #1c1b18;
+  --surface-2: #24221e;
+  --text: #ece8df;
+  --muted: #a8a397;
+  --rule: #2e2c27;
+  --accent: #e8875a;
+  --accent-soft: #3a2519;
+  --on-accent: #1b1a17;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -14px rgb(0 0 0 / 0.6);
+  --st-green: #4fae74;
+  --st-light_green: #93c25c;
+  --st-yellow: #d9b437;
+  --st-amber: #dc9638;
+  --st-red: #e0607c;
+  --st-dark_red: #b9505f;
+  --st-grey: #7d786d;
+  --ink-on-status: #131210;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --bg: #131210;
+    --surface: #1c1b18;
+    --surface-2: #24221e;
+    --text: #ece8df;
+    --muted: #a8a397;
+    --rule: #2e2c27;
+    --accent: #e8875a;
+    --accent-soft: #3a2519;
+    --on-accent: #1b1a17;
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -14px rgb(0 0 0 / 0.6);
+    --st-green: #4fae74;
+    --st-light_green: #93c25c;
+    --st-yellow: #d9b437;
+    --st-amber: #dc9638;
+    --st-red: #e0607c;
+    --st-dark_red: #b9505f;
+    --st-grey: #7d786d;
+    --ink-on-status: #131210;
+    color-scheme: dark;
+  }
+}
