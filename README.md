@@ -15,7 +15,7 @@ If the site grows past a single page, add a new `.html` file at the root, link i
 
 ## Dashboard
 
-`dashboard/` is the African speech data dashboard, copied from the private `afrospeech-dashboard` repository. Do not edit it here. To update it, rebuild the site there and run, from that repository:
+`dashboard/` is a public copy of selected views of the African speech data dashboard; the full dashboard stays on its private host. It is copied from the private `afrospeech-dashboard` repository; do not edit it here. To update it, rebuild the site there and run, from that repository:
 
 ```sh
 python scripts/export_public_site.py --dest ../afrimodal-ai.github.io/dashboard
