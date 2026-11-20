@@ -13,6 +13,16 @@ Each section in `index.html` has an `id` matching its navigation link. To add an
 
 If the site grows past a single page, add a new `.html` file at the root, link it from the navigation, and list it in `sitemap.xml`.
 
+## Dashboard
+
+`dashboard/` is the African speech data dashboard, copied from the private `afrospeech-dashboard` repository. Do not edit it here. To update it, rebuild the site there and run, from that repository:
+
+```sh
+python scripts/export_public_site.py --dest ../afrimodal-ai.github.io/dashboard
+```
+
+The export copies only the files the visible page loads, so data behind hidden pages is never published.
+
 ## Checks
 
 The `Check` workflow validates the HTML and checks links on every push, on pull requests and weekly. To run the same checks locally:
