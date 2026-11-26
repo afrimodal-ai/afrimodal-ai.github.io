@@ -322,3 +322,8 @@ h2::before { content: ""; width: 1.5rem; height: 3px; border-radius: 2px; backgr
 
 .not-found { padding: 5rem 0; }
 .not-found h1 { margin: 0 0 1rem; font-size: clamp(2rem, 5vw, 3rem); }
+
+.outputs { list-style: none; margin: 0; padding: 0; max-width: 42rem; display: grid; gap: 1.25rem; }
+.outputs h3 { margin: 0 0 0.35rem; font-size: 1.1rem; }
+.outputs p { margin: 0; }
+.note { max-width: 42rem; margin-top: 1.25rem; color: var(--muted, inherit); }
